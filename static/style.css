@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    margin: 0 0 0 0;
+    min-height: 42px;
+    height: 10vh;
+    max-height: 72px;
+    background: #3e3e3e;
+    color: aliceblue;
+}
+
+header span {
+    font-size:x-large;
+    font-weight: bold;
+}
+
+
+main {
+    height: 100vh;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 42px;
+    height: 10vh;
+    position: sticky;
+    bottom: 0;
+    margin: 0;
+    background-color: #3e3e3e;
+}
+
+.textarea {
+    flex: 10;
+    height: inherit;
+}
+
+.textarea textarea{
+    /* box-sizing: border-box; */
+    margin: 0;
+    width: 100%;
+    color: #e3e3e3;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+    height: 9vh;
+    border: 2px solid #4e4e4e;
+    border-radius: 0;
+    background-color: transparent;
+    resize: none;
+    transition: all 0.3s 0.2s ease-in-out;
+}
+
+.textarea textarea:hover {
+    background-color: #4e4e4e;
+}
+
+.textarea textarea:focus {
+    outline: none;
+    background-color: #5e5e5e;
+}
+
+.button {
+    flex: 1;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button button {
+    height: 100%;
+    min-width: 50px;
+    width: 100%;
+    margin: 2px;
+    color: #e3e3e3;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    transition: 0.3s 0.2s;
+}
+
+.button button:hover {
+    background-color: #4e4e4e;
+}
+
+.button button:active {
+    background-color: #5e5e5e;
+}
+
+
+.conversation-wrapper {
+    display: inline-block;
+    background: linear-gradient(to right bottom, #aabbcc, #fff);
+    min-width: 100vw;
+    min-height: 100%;
+    color: #e3e3e3;
+}
+
+.message-wrapper {
+    list-style: none;
+    border-radius: 6px;
+    width: 100vw;
+    min-height: 50px;
+    height: 6vh;
+    max-height: 100px;
+}
+
+.question {
+    max-width: 400px;
+    width: 35vw;
+    min-width: 42px;
+    min-height: 60px;
+    height: 6vh;
+    max-height: 100px;
+    background-color: #3e3e3e;
+    border: 1px solid #3e3e3e;
+    border-radius: 6px;
+    margin: 3px;
+    float: right;
+    
+}
+
+.answer {
+    max-width: 400px;
+    width: 35vw;
+    min-width: 42px;
+    min-height: 60px;
+    height: 6vh;
+    max-height: 100px;
+    background-color: #3e3e3e;
+    border: 1px solid #3e3e3e;
+    border-radius: 6px;
+    margin: 3px;
+    float: left;
+}

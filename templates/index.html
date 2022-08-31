@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Chat Bot</title>
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <span>Chat Bot</span>
+        </header>
+        <main>
+            <div class="conversation-wrapper">
+
+            </div>
+            <div class="input-container">
+                <div class="textarea">
+                    <label for="input"></label><textarea name="input" id="input" maxlength="30"></textarea>
+                </div>
+                <div class="button">
+                    <button>发送</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+<script>
+    const conversation = document.querySelector('.conversation-wrapper');
+    const button = document.querySelector('.button');
+    const textarea = document.querySelector('#input')
+    const server_ip = '127.0.0.1'
+    const server_port = 5000
+    let canSubmit = true
+
+    function submit(){
+        let message = textarea.value
+        let headers = new Headers()
+        headers.append('Content-Type', 'text/plain')
+        const promise = fetch(`http://${server_ip}:${server_port}/question`, {
+            method: 'POST',
+            mode: 'cors',
+            headers: headers,
+            body: message,
+        })
+
+        const wrapper = document.createElement('div')
+        wrapper.setAttribute('class', 'message-wrapper')
+        const question = document.createElement('div')
+        question.setAttribute('class','question')
+        question.appendChild(document.createTextNode(message))
+        wrapper.appendChild(question)
+        conversation.appendChild(wrapper)
+
+        promise.then(res => res.json())
+            .then(response => {
+                canSubmit = false
+                console.log(response)
+                let res = response.data[0]
+                const wrapper = document.createElement('div')
+                wrapper.setAttribute('class', 'message-wrapper')
+                const answer = document.createElement('div')
+                answer.setAttribute('class', 'answer')
+                answer.appendChild(document.createTextNode(res))
+                wrapper.appendChild(answer)
+                conversation.appendChild(wrapper)
+            })
+
+        textarea.value = ''
+
+    }
+
+    button.addEventListener('click', submit)
+
+    textarea.addEventListener('keyup', (e)=>{
+        if (e.key === 'Enter') {
+            submit()
+        }
+    })
+
+
+</script>
+
+</html>
