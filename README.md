@@ -13,12 +13,12 @@
 
 后端是一个简单的flask应用。
 
-效果：
+## 效果：
 ![chat.png](https://github.com/EurFelux/chatbot-transformer/blob/main/resources/chat.png)
 
 
 ## 感谢
-https://github.com/bentrevett/pytorch-seq2seq
-https://github.com/codemayq/chinese_chatbot_corpus
-https://github.com/candlewill/Dialog_Corpus
-hugging face model: clue/albert_chinese_tiny
+- https://github.com/bentrevett/pytorch-seq2seq
+- https://github.com/codemayq/chinese_chatbot_corpus
+- https://github.com/candlewill/Dialog_Corpus
+- hugging face model: clue/albert_chinese_tiny
